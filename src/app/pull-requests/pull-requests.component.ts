@@ -11,7 +11,6 @@ import { Observable, Subject } from 'rxjs';
 })
 
 export class PullRequestsComponent implements OnInit {
-  static $inject = ['$http', '$scope'];
   repos = REPOS;
   isYellow(status: string): boolean {
     return status === 'YELLOW';
