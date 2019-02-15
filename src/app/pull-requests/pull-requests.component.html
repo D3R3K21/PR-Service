@@ -1,0 +1,19 @@
+<table *ngFor="let repo of repos" id="repos-table">
+  <tr>
+    <th>{{repo.name}}</th>
+    <th>Creator</th>
+    <th>Asignees</th>
+    <th>Status</th>
+  </tr>
+  <tr *ngFor="let pr of repo.pullRequests">
+      <td>{{pr.title}}</td>
+      <td>{{pr.user.login}}</td>
+      <td><span *ngFor="let a of pr.assignees">{{a.login}}, </span></td>
+
+      <td *ngIf="isRed(pr.status)" bgcolor="#FF0000">{{pr.status}}</td>
+      <td *ngIf="isYellow(pr.status)" bgcolor="#ffff00">{{pr.status}}</td>
+      <td *ngIf="isGreen(pr.status)" bgcolor=" #1cb242">{{pr.status}}</td>
+
+  </tr>
+</table>
+
